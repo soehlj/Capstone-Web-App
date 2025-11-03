@@ -24,17 +24,14 @@ examples:
 "added embedded content to page"
 "removed unused code"
 ## Code Style, Linting & Formatting
-Name the formatter/linter, config file locations, and the exact commands to
-check/fix locally.
+Config files are in .prettierrc and .eslintrc.json. Run npm run lint to check and npm run lint:fix or npm run format to fix issues. Code must pass linting before merge.
 ## Testing
-Define required test types, how to run tests, expected coverage thresholds, and
+All code changes must include tests. Run tests with npm test. Unit and integration tests are required for new features or bug fixes. Test coverage should stay above 80%.
 when new/updated tests are mandatory.
 ## Pull Requests & Reviews
-Outline PR requirements (template, checklist, size limits), reviewer expectations,
-approval rules, and required status checks.
+Use the pull request template and link related issues. All PRs must pass lint, tests, and CI checks before review. At least one reviewer must approve before merge. Keep PRs small and focused.
 ## CI/CD
-Link to pipeline definitions, list mandatory jobs, how to view logs/re-run jobs,
-and what must pass before merge/release.
+CI/CD is handled through GitHub Actions in .github/workflows/. Jobs include lint, test, and build. All jobs must pass before merging or releasing. Logs and reruns are available under the Actions tab.
 ## Security & Secrets
 State how to report vulnerabilities, prohibited patterns (hard-coded secrets),
 dependency update policy, and scanning tools.
