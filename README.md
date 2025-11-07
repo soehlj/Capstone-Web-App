@@ -17,6 +17,7 @@ Nischal Aryal
 (all of these in terminal)
 1. python -m venv venv  
 2. .\venv\Scripts\activate
-3. python app.py
-4. Then click on Http to see local website
-5. May need to run (Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass) in powershell if get error on step 2
+3. pip install Flask Flask-Scss Flask-SQLAlchemy
+4. python app.py
+5. Then click on Http to see local website
+6. May need to run (Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass) in powershell if get error on step 2
