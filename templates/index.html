@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Casting Mold 3D Printing Guide</title>
-	<style>
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Casting Mold 3D Printing Guide</title>
+
+<style>
 	body {
 		margin: 0;
 		font-family: Arial, sans-serif;
@@ -51,22 +50,32 @@
 		font-size: 1em;
 		margin-top: 10px;
 	}
-	
+
 	@media (max-width: 768px) {
 		main {
-		flex-direction: column;
+			flex-direction: column;
 		}
 	}
-	</style>
-</head>
-<body>
-	<header>Guide to Creating Molds For Casting With 3D Printing</header>
+</style>
 
-	<main>
+{% endblock %}
+
+{% block body %}
+
+<header>Guide to Creating Molds For Casting With 3D Printing</header>
+
+<main>
 	<!-- Left Column -->
 	<div class="left-column">
 		<h1>Casting with 3D Prints</h1>
-		<p>3D Printing is an immensely useful technology that can produce complex objects with ease. However, there are certain limitations to the types of materials available for 3D printing and their properties. This page acts as a guide to our project which is focussed on finding the optimal solution to create casting molds with 3D printing.</p>
+
+		<p>
+			3D Printing is an immensely useful technology that can produce complex objects with ease.
+			However, there are limitations to materials and their properties.
+			This page acts as a guide to our project which focuses on finding the optimal solution for
+			creating casting molds with 3D printing.
+		</p>
+
 		<label for="material">Choose the casting material you would like to work with:</label>
 		<select id="material">
 			<option value="0">Choose a Material</option>
@@ -74,7 +83,9 @@
 			<option value="2">Resin</option>
 			<option value="3">Concrete/Cement</option>
 		</select>
-		<p>&nbsp </p>
+
+		<p>&nbsp;</p>
+
 		<label for="mold">Please select mold features below</label>
 		<select id="mold">
 			<option value="0">No special properties</option>
@@ -87,40 +98,44 @@
 	<div class="right-column">
 		<p id="dynamicBox" class="dynamic-textbox"></p>
 	</div>
-	</main>
+</main>
 
-	<script>
-		const material = document.getElementById('material');
-		const mold = document.getElementById('mold');
-		const dynamicBox = document.getElementById('dynamicBox');
 
-		const data = {
-			0:{	0: "Select material and mold details and the suggested solution will appear here",
-				1: "We haven't yet experimented with Silicone, but once we do our findings and recommendations will be listed here",
-				2: "We haven't tested resin casting yet, but any findings we have will be displayed here",
-				3: "We haven't worked with conctete yet, but when we do, our findings will be compiled here"
-			},
-			1:{	0: "Select material and mold details and the suggested solution will appear here",
-				1: "We haven't yet experimented with Silicone or it's interaction with mold voids, but once we do our findings and recommendations will be listed here",
-				2: "We haven't tested resin casting with voids yet, but any findings we have will be displayed here",
-				3: "We haven't worked with conctete with voids yet, but when we do, our findings will be compiled here"
-			},
-			2:{	0: "Select material and mold details and the suggested solution will appear here",
-				1: "We haven't yet experimented with how to best get fine details when casting silicone, but once we do our findings and recommendations will be listed here",
-				2: "We haven't tested fine details with resin casting yet, but any findings we have will be displayed here",
-				3: "We haven't worked with molds for fine conctete details yet, but when we do, our findings will be compiled here"
-			},
-		};
+<script>
+	const material = document.getElementById('material');
+	const mold = document.getElementById('mold');
+	const dynamicBox = document.getElementById('dynamicBox');
 
-		// Initialize default text
+	const data = {
+		0: {
+			0: "Select material and mold details and the suggested solution will appear here",
+			1: "We haven't yet experimented with Silicone, but once we do our findings and recommendations will be listed here",
+			2: "We haven't tested resin casting yet, but any findings we have will be displayed here",
+			3: "We haven't worked with concrete yet, but when we do, our findings will be compiled here"
+		},
+		1: {
+			0: "Select material and mold details and the suggested solution will appear here",
+			1: "We haven't yet experimented with Silicone or its interaction with mold voids, but once we do our findings and recommendations will be listed here",
+			2: "We haven't tested resin casting with voids yet, but any findings we have will be displayed here",
+			3: "We haven't worked with concrete with voids yet, but when we do, our findings will be compiled here"
+		},
+		2: {
+			0: "Select material and mold details and the suggested solution will appear here",
+			1: "We haven't yet experimented with how to best get fine details when casting silicone, but once we do our findings and recommendations will be listed here",
+			2: "We haven't tested fine details with resin casting yet, but any findings we have will be displayed here",
+			3: "We haven't worked with molds for fine concrete details yet, but when we do, our findings will be compiled here"
+		},
+	};
+
+	// Initialize default text
+	dynamicBox.innerHTML = data[mold.value][material.value];
+
+	material.addEventListener('change', () => {
 		dynamicBox.innerHTML = data[mold.value][material.value];
+	});
+	mold.addEventListener('change', () => {
+		dynamicBox.innerHTML = data[mold.value][material.value];
+	});
+</script>
 
-		material.addEventListener('change', () => {
-			dynamicBox.innerHTML = data[mold.value][material.value];
-		});
-		mold.addEventListener('change', () => {
-			dynamicBox.innerHTML = data[mold.value][material.value];
-		});
-	</script>
-</body>
-</html>
+{% endblock %}
