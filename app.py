@@ -22,6 +22,11 @@ def home():
 def about():
     return render_template("about.html")
 
+@app.route("/process")
+def process():
+    return render_template("process.html")
+
+
 
 # Run the app
 if __name__ == "__main__":
