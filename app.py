@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_scss import Scss
 from flask_sqlalchemy import SQLAlchemy
+import pandas as pd
 
 
 # Create the Flask application instance
@@ -25,6 +26,15 @@ def about():
 @app.route("/process")
 def process():
     return render_template("process.html")
+
+@app.route("/all_data")
+def all_data():
+    database = pd.read_csv('data.csv')
+    rows = database.to_dict(orient='records')
+    headers = database.columns.tolist()
+    
+
+    return render_template('all_data.html', headers=headers, rows=rows)
 
 
 
