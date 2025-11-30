@@ -1,0 +1,26 @@
+ -- INSTALLING PROGRAMS -- 
+ To do the linting process, we are using the formatter Black and the
+linter Pylint.
+
+To install these programs, run the following code:
+python -m venv venv
+source ./venv/Scripts/activate
+pip install black pylint
+
+ -- Formatting with Black --
+To run the formatter, treat a file (you can also use a directory) like
+you were going to run it with python, but type 'black' instead of 'python'
+
+example
+black app.py
+
+the formatter will automatically format the code in the file.
+
+ -- Linting with Pylint--
+same process as with black, just run pylint <file>. This will output
+notes and errors from the code. Note that some errors might not need
+adjustment.
+
+example
+pylint app.py
+

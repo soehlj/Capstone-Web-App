@@ -1,0 +1,13 @@
+Silicone_Type,3D_Print_Material,Print_Texture,Curing_Time_Hours,Adhesion_Score(1-10),Tear_Resistance(1-10),Bubble_Formation(1-10,lower_better),Overall_Performance(1-10)
+Silicone A,PLA,Smooth,6,8,7,2,8
+Silicone A,PLA,Rough,6,6,7,3,7
+Silicone A,PETG,Smooth,6,7,8,2,8
+Silicone B,PLA,Smooth,4,5,9,4,7
+Silicone B,PLA,Rough,4,4,8,5,6
+Silicone B,PETG,Smooth,4,6,9,3,7
+Silicone C,ABS,Smooth,8,7,6,2,7
+Silicone C,ABS,Rough,8,5,6,3,6
+Silicone C,Resin,Smooth,8,9,7,1,9
+Silicone D,Resin,Smooth,10,10,8,1,10
+Silicone D,PETG,Rough,10,7,9,2,8
+Silicone D,PLA,Smooth,10,9,8,1,9

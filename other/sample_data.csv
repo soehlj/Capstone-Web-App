@@ -1,0 +1,22 @@
+﻿Material,Printing_Technique,Silicone_Type,Surface_Smoothness(1-10),Ease_of_Release(1-10),Durability(1-10),Detail_Accuracy(1-10),Print_Temperature(°C),Cost($/kg),Notes
+PLA,FDM,Platinum-Cure,6,8,5,7,200,22,Releases silicone easily but loses shape at high temps
+PETG,FDM,Tin-Cure,7,9,7,6,240,25,Smooth finish and good release but moderate detail
+ABS,FDM,Platinum-Cure,5,6,8,6,240,20,Durable but difficult to remove silicone
+Resin,SLA,Platinum-Cure,9,7,6,10,,40,Excellent detail; surface smoothness best overall
+Nylon,FDM,Tin-Cure,6,5,9,5,250,35,Strong and reusable mold but poor silicone release
+TPU,FDM,Platinum-Cure,4,9,6,4,220,30,"Flexible mold, easy release but rough surface texture"
+PLA+,FDM,Tin-Cure,7,8,6,8,210,26,Improved version of PLA with better durability
+Carbon Fiber PLA,FDM,Platinum-Cure,8,7,9,8,215,45,"Rigid and strong, smooth surface but expensive"
+Tough Resin,SLA,Platinum-Cure,9,6,8,9,,50,Very smooth but sometimes sticks to silicone
+ABS+,FDM,Tin-Cure,6,6,9,7,245,27,Better temperature resistance and reusability
+PETG-CF,FDM,Platinum-Cure,8,8,9,7,245,48,"Good release, high strength, slightly matte finish"
+High Temp Resin,SLA,Tin-Cure,8,5,9,10,,60,Excellent for high-heat casting but sticks more
+Polycarbonate,FDM,Platinum-Cure,7,5,10,8,270,40,"Strong mold, handles heat well but hard to print"
+HIPS,FDM,Tin-Cure,6,7,6,6,230,24,"Easy to remove silicone, dissolvable if needed"
+Flexible Resin,SLA,Platinum-Cure,5,9,6,8,,55,"Soft mold with great release, less fine detail"
+Wood-Filled PLA,FDM,Tin-Cure,6,8,5,7,210,30,"Natural finish, absorbs silicone slightly"
+ASA,FDM,Platinum-Cure,7,7,8,7,250,32,"UV resistant, smooth, durable"
+PP (Polypropylene),FDM,Tin-Cure,5,9,7,6,230,35,"Excellent release properties, flexible base"
+Glass-Filled Nylon,FDM,Platinum-Cure,8,6,10,8,260,55,"Very strong and heat-resistant, rough surface"
+Eco Resin,SLA,Platinum-Cure,9,7,6,9,,42,"Smooth and biodegradable, moderate durability"
+PLA Silk,FDM,Tin-Cure,8,9,5,9,200,28,"Beautiful surface, easy release, lower strength"
