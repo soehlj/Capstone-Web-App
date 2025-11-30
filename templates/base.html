@@ -1,0 +1,23 @@
+<!-- This page is the base to all pages if want to have similar things throughout add to this file. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+
+    {% block head%}{%endblock%}
+    
+    <!-- Add nav bar to all pages here -->
+</head>
+<body>
+    <nav>
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('about') }}">About</a>
+    <a href="{{ url_for('process') }}">Process</a>
+    <a href="{{ url_for('all_data') }}">All Data</a>
+    </nav>
+    {% block body%}{% endblock %}
+</body>
+</html>
