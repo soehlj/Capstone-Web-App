@@ -2,14 +2,14 @@
 install:
 	@echo "Installing Requirements"
 	python -m venv venv
-	bash -c "source venv/bin/activate && pip install Flask Flask-Scss Flask-SQLAlchemy"
+	bash -c "source venv/bin/activate && pip install pandas Flask Flask-Scss Flask-SQLAlchemy"
 	@echo "Requirements Installed"
 
 #install requirements and linting+formatting tools
 install-dev:
 	@echo "Installing Requirements and Tools"
 	python -m venv venv
-	bash -c "source venv/bin/activate && pip install Flask Flask-Scss Flask-SQLAlchemy black pylint"
+	bash -c "source venv/bin/activate && pip install pandas Flask Flask-Scss Flask-SQLAlchemy black pylint"
 	@echo "Requirements and Tools Installed"
 
 #run the site app
