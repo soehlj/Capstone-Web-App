@@ -10,14 +10,69 @@
     {% block head%}{%endblock%}
     
     <!-- Add nav bar to all pages here -->
+
+<style>
+	body {
+		margin: 0;
+		font-family: Arial, sans-serif;
+	}
+
+	/* Title bar */
+	header {
+		display: flex;
+		background-color: #f65c25;
+	}
+	.linkbtn {
+		background-color: #ea450a;
+		color: black;
+		font-size: 20px;
+		height: 100%;
+		border-width: 2px;
+		border-color: black;
+		cursor: pointer;
+		width: 12%;
+	}
+
+	.linkbtn:hover {
+		background-color: #c6471a;
+	}
+
+	#title {
+		width: 35%;
+		color: black;
+		text-align: center;
+		font-size: 4em;
+		padding: 0.1em;
+		font-weight: bold;
+	}
+
+	#links {
+		width: 100%;
+		text-align: right;
+	}
+
+</style>
 </head>
+<title>Cast 3D - The Cast 3D Printing Guide</title>
 <body>
-    <nav>
-    <a href="{{ url_for('home') }}">Home</a>
-    <a href="{{ url_for('about') }}">About</a>
-    <a href="{{ url_for('process') }}">Process</a>
-    <a href="{{ url_for('all_data') }}">All Data</a>
-    </nav>
+	<div>
+		<header>
+			<div id="title">
+				Cast 3D
+			</div>
+			<div id="links">
+				<button class="linkbtn" 
+				onclick="location.href='{{url_for("home")}}'"> Home </button>
+				<button class="linkbtn" 
+				onclick="location.href='{{url_for("about")}}'"> About </button>
+				<button class="linkbtn" 
+				onclick="location.href='{{url_for("process")}}'"> Process </button>
+				<button class="linkbtn" 
+				onclick="location.href='{{url_for("all_data")}}'"> Data </button>
+			</div>
+			<div style="width: 5%;"></div>
+		</header>
+	</div>
     {% block body%}{% endblock %}
 </body>
 </html>
