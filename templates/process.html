@@ -1,10 +1,80 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Documention on Process</title>
+<style>
+	.div_a {
+		width: 100%;
+		padding: 5px;
+		background-color: white;
+		text-align: left;
+		display: flex;
+	}
+
+	.div_b {
+		width: 100%;
+		padding: 5px;
+		background-color: #fee9e1;
+		text-align: left;
+		display: flex;
+	}
+	.section {
+		text-align: center;
+		width:17%;
+	}
+	.content {
+		width:60%;
+
+</style>
 {%endblock%}
 
 {% block body %}
-<h1> Casting:</h1>
+<div class="div_b">
+	<div class="section">
+		<h1> Material Choices</h1>
+	</div>
+	<div class="content">
+		<p> Here is text about the materials we used and how we selected them for testing</p>
+	</div>
+</div>
+<div class="div_a">
+	<div class="section">
+		<h1> 3D Printing</h1>
+	</div>
+	<div class="content">
+		<p> Here is the information about the settings we used for printing</p>
+	</div>
+</div>
+<div class="div_b">
+	<div class="section">
+	<h1> Processing Molds</h1>
+	</div>
+	<div class="content">
+		<p> Here is the full list of steps we took to post process molds before casting </p>
+	</div>
+</div>
+<div class="div_a">
+	<div class="section">
+		<h1> Casting </h1>
+	</div>
+	<div class="content">
+		<p> Here is detailed info about the steps we took to cast using our prepared molds <p>
+	</div>
+</div>
+<div class="div_b">
+	<div class="section">
+		<h1> Demolding</h1>
+	</div>
+	<div class="content">
+		<p> Here is info about the things we paid attention to while demolding parts</p>
+	</div>
+</div>
+<div class="div_a">
+	<div class="section">
+		<h1> Other considerations</h1>
+	</div>
+	<div class="content">
+		<p> here is a list of anything else we wanted to mention</p>
+	</div>
+</div>
 
 {%endblock%}
