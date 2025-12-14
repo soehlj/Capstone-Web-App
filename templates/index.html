@@ -1,193 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Casting Mold 3D Printing Guide</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-      }
+{% extends 'base.html' %}
 
-      /* Title bar */
-      header {
-        background-color: #d73f09;
-        color: black;
-        padding: 1em;
-        text-align: center;
-        font-size: 2em;
-        font-weight: bold;
-      }
+{% block head %}
 
-      /* Main layout */
-      main {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+<style>
+	body {
+		margin: 0;
+		font-family: Arial, sans-serif;
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+	}
 
-      /* Content container */
-      .content-container {
-        max-width: 800px;
-        width: 90%;
-        margin: 0 auto;
-        text-align: center;
-        padding: 20px;
-        background-color: #f2f2f2;
-        border-radius: 8px;
-        margin-top: 20px;
-      }
 
-      /* Row containing two related selects and an "or" divider */
-      .select-row {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-        margin: 10px 0;
-      }
+	/* Main layout */
+	main {
+		flex: 1;
+		display: flex;
+	}
 
-      .select-wrapper {
-        width: 45%;
-        min-width: 160px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+	/* Left column */
+	.left-column {
+		width: 30%;
+		height:100%;
+		background-color: #fee9e1;
+		padding: 20px;
+		box-sizing: border-box;
+		border-right: 2px solid #ddd;
+	}
 
-      .select-row .or-text {
-        font-weight: bold;
-        color: #333;
-      }
+	/* Right column */
+	.right-column {
+		flex: 1;
+		padding: 20px;
+		box-sizing: border-box;
+	}
 
-      .select-row select,
-      select {
-        width: 100%;
-        padding: 10px;
-        font-size: 1em;
-        box-sizing: border-box;
-        display: block;
-      }
+	select, .dynamic-textbox {
+		width: 100%;
+		padding: 10px;
+		font-size: 1em;
+		margin-top: 10px;
+	}
 
-      .dynamic-textbox {
-        width: 90%;
-        max-width: 600px;
-        padding: 20px;
-        margin: 20px auto;
-        background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
+	@media (max-width: 768px) {
+		main {
+			flex-direction: column;
+		}
+	}
+</style>
 
-      @media (max-width: 768px) {
-        main {
-          flex-direction: column;
-        }
-        .select-row {
-          flex-direction: column;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>Guide to Creating Molds For Casting With 3D Printing</header>
+{% endblock %}
 
-    <main>
-      <div class="content-container">
-        <h1>Casting with 3D Prints</h1>
-        <p>
-          3D Printing is an immensely useful technology that can produce complex
-          objects with ease. However, there are certain limitations to the types
-          of materials available for 3D printing and their properties. This page
-          acts as a guide to our project which is focussed on finding the
-          optimal solution to create casting molds with 3D printing.
-        </p>
+{% block body %}
 
-        <div class="select-row" aria-label="Choose material or filament">
-          <div class="select-wrapper">
-            <label for="material"
-              >Choose the casting material to work with:</label
-            >
-            <select id="material">
-              <option value="0">Choose a Material</option>
-              <option value="1">Silicone</option>
-              <option value="2">Resin</option>
-              <option value="3">Concrete/Cement</option>
-            </select>
-          </div>
+<main>
+	<!-- Left Column -->
+	<div class="left-column">
+		<h1>Casting with 3D Prints</h1>
 
-          <div class="or-text" aria-hidden="true">or</div>
+		<p>
+			3D Printing is an immensely useful technology that can produce complex objects with ease.
+			However, there are limitations to materials and their properties.
+			This page acts as a guide to our project which focuses on finding the optimal solution for
+			creating casting molds with 3D printing.
+		</p>
 
-          <div class="select-wrapper">
-            <label for="filament">Choose a filament to mold with:</label>
-            <select id="filament">
-              <option value="0">Choose a Filament</option>
-              <option value="1">PLA</option>
-              <option value="2">PETG</option>
-              <option value="3">TPU</option>
-              <option value="4">PVA</option>
-              <option value="5">ASA</option>
-            </select>
-          </div>
-        </div>
+		<label for="material">Choose the casting material you would like to work with:</label>
+		<select id="material">
+			<option value="0">Choose a Material</option>
+			<option value="1">Silicone</option>
+			<option value="2">Resin</option>
+			<option value="3">Concrete/Cement</option>
+		</select>
 
-        <p id="dynamicBox" class="dynamic-textbox"></p>
-      </div>
-    </main>
+		<p>&nbsp;</p>
 
-    <script>
-      const material = document.getElementById("material");
-      const filament = document.getElementById("filament");
-      const dynamicBox = document.getElementById("dynamicBox");
+		<label for="mold">Please select mold features below</label>
+		<select id="mold">
+			<option value="0">No special properties</option>
+			<option value="1">Voids/empty inner space</option>
+			<option value="2">Fine details</option>
+		</select>
+	</div>
 
-      const materialData = {
-        0: "Select a material (or filament) and the suggested solution will appear here.",
-        1: "Silicone: We haven't yet completed experiments for silicone molding; findings and recommendations will be listed here when available.",
-        2: "Resin: We haven't tested resin casting thoroughly yet; any findings will be displayed here.",
-        3: "Concrete/Cement: We haven't worked with concrete casting yet; when we do, our findings will be compiled here.",
-      };
+	<!-- Right Column -->
+	<div class="right-column">
+		<p id="dynamicBox" class="dynamic-textbox"></p>
+	</div>
+</main>
 
-      const filamentNames = {
-        0: null,
-        1: "PLA",
-        2: "PETG",
-        3: "TPU",
-        4: "PVA",
-        5: "ASA",
-      };
 
-      function updateDynamic() {
-        const m = material.value;
-        const f = filament.value;
+<script>
+	const material = document.getElementById('material');
+	const mold = document.getElementById('mold');
+	const dynamicBox = document.getElementById('dynamicBox');
 
-        // If both a material and a filament are selected, prompt user to choose one
-        if (m !== "0" && f !== "0") {
-          dynamicBox.innerHTML =
-            "Please select either a material OR a filament to see what it pairs best with.";
-          return;
-        }
+	const data = {
+		0: {
+			0: "Select material and mold details and the suggested solution will appear here",
+			1: "We haven't yet experimented with Silicone, but once we do our findings and recommendations will be listed here",
+			2: "We haven't tested resin casting yet, but any findings we have will be displayed here",
+			3: "We haven't worked with concrete yet, but when we do, our findings will be compiled here"
+		},
+		1: {
+			0: "Select material and mold details and the suggested solution will appear here",
+			1: "We haven't yet experimented with Silicone or its interaction with mold voids, but once we do our findings and recommendations will be listed here",
+			2: "We haven't tested resin casting with voids yet, but any findings we have will be displayed here",
+			3: "We haven't worked with concrete with voids yet, but when we do, our findings will be compiled here"
+		},
+		2: {
+			0: "Select material and mold details and the suggested solution will appear here",
+			1: "We haven't yet experimented with how to best get fine details when casting silicone, but once we do our findings and recommendations will be listed here",
+			2: "We haven't tested fine details with resin casting yet, but any findings we have will be displayed here",
+			3: "We haven't worked with molds for fine concrete details yet, but when we do, our findings will be compiled here"
+		},
+	};
 
-        // If only a filament is selected, show filament-specific message
-        if (f !== "0") {
-          const name = filamentNames[f] || "this filament";
-          dynamicBox.innerHTML = `We haven't tested ${name} molds yet; when we do our findings will be compiled here.`;
-          return;
-        }
+	// Initialize default text
+	dynamicBox.innerHTML = data[mold.value][material.value];
 
-        // Otherwise show material-specific message (or default)
-        dynamicBox.innerHTML = materialData[m] || materialData["0"];
-      }
+	material.addEventListener('change', () => {
+		dynamicBox.innerHTML = data[mold.value][material.value];
+	});
+	mold.addEventListener('change', () => {
+		dynamicBox.innerHTML = data[mold.value][material.value];
+	});
+</script>
 
-      // Initialize default text
-      updateDynamic();
-
-      material.addEventListener("change", updateDynamic);
-      filament.addEventListener("change", updateDynamic);
-    </script>
-  </body>
-</html>
+{% endblock %}

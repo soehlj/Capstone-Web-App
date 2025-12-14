@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style>
+	.div_a {
+		width: 100%;
+		padding: 5px;
+		background-color: white;
+		text-align: center;
+	}
+
+	.div_b {
+		width: 100%;
+		padding: 5px;
+		background-color: #fee9e1;
+		text-align: center;
+	}
+
+
+</style>
+{%endblock%}
+
+{% block body %}
+<div style="width: 100%;height:91%; overflow:hidden;display:flex;position:absolute;">
+<div style="width:55%;">
+<div class="div_a">
+	<h1> About Us:</h1>
+	<p> Here is a little section talking about the people behind the project</p>
+</div>
+<div class="div_b">
+	<h1> About The Project:</h1>
+	<p> Here is a little bit of information about our motivations and goals for this project
+</div>
+<div class="div_a">
+	<h1> Cited informatin:</h1>
+	<p> Here is some resources we found helpful in our research <p>
+</div>
+</div>
+<div style="width:45%;background-color:lightblue;">
+	<p>(an image will go here)</p>
+</div>
+</div>
+{%endblock%}
