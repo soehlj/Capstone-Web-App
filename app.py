@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_scss import Scss
 from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
@@ -15,9 +15,20 @@ db = SQLAlchemy(app)
     #Finish Late
     
 # Define a route (homepage)
-@app.route("/")
+@app.route("/", methods=['GET'])
 def home():
-    return render_template("index.html")
+    #determine the query of url/user material state
+    state = request.args.get('material')
+    
+    if(state == "silicone"):
+        return render_template("silicone.html")
+    elif(state == "rubber"):
+        return render_template("rubber.html")
+    elif(state == "resin"):
+        return render_template("resin.html")
+    else:
+        return render_template("no_material.html")
+    
 
 @app.route("/about")
 def about():
