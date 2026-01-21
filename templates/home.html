@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<style>
+	body {
+		margin: 0;
+		font-family: Arial, sans-serif;
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+	}
+
+
+	/* Main layout */
+	main {
+		flex: 1;
+		display: flex;
+	}
+
+	/* Left column */
+	.left-column {
+		width: 30%;
+		height:100%;
+		background-color: #fee9e1;
+		padding: 20px;
+		box-sizing: border-box;
+		border-right: 2px solid #ddd;
+	}
+
+	/* Right column */
+	.right-column {
+		flex: 1;
+		padding: 20px;
+		box-sizing: border-box;
+	}
+
+	select, .dynamic-textbox {
+		width: 100%;
+		padding: 10px;
+		font-size: 1em;
+		margin-top: 10px;
+	}
+
+	@media (max-width: 768px) {
+		main {
+			flex-direction: column;
+		}
+	}
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+<main>
+	<!-- Left Column -->
+	<div class="left-column">
+		<h1>Casting with 3D Prints</h1>
+
+		<p>
+			3D Printing is an immensely useful technology that can produce complex objects with ease.
+			However, there are limitations to materials and their properties.
+			This page acts as a guide to our project which focuses on finding the optimal solution for
+			creating casting molds with 3D printing.
+		</p>
+
+		<label for="material">Choose the casting material you would like to work with:</label>
+		<select id="material">
+			<option value="">Choose a Material</option>
+			<option value="?material=silicone">Silicone</option>
+			<option value="?material=rubber">Rubber</option>
+			<option value="?material=resin">Resin</option>
+		</select>
+	</div>
+
+	<!-- Right Column -->
+	<div class="right-column">
+	  {% block info %}
+	  {% endblock %}
+		<!--<p id="dynamicBox" class="dynamic-textbox"></p>-->
+	</div>
+</main>
+
+
+<script>
+const material = document.getElementById('material');
+//update selector box to current material
+function materialContinuity() {
+    var mat = window.location.href.split('?')[1];
+    if(!mat)
+      mat = "";
+    else
+      mat = '?' + mat;
+    const allMats = Array.from(material.options).map(option=>option.value);
+    //console.log(allMats);
+    //console.log(mat);
+    for(let i = 0; i < 4; i++){
+      if(allMats[i] == mat){
+        material[i].selected = true;
+        return;
+    }}   
+}
+materialContinuity();
+
+//change/reload url if new material selected
+material.addEventListener('change', () => {
+    var val = material.value,
+        url   = window.location.href.split('?')[0];
+
+    window.location.href = url + val;
+});
+</script>
+
+{% endblock %}
