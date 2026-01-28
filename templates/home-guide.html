@@ -1,0 +1,128 @@
+{% extends 'home.html' %}
+
+{%block guide %}
+<style>
+	/*class for sections of the guide*/
+	.section {
+		width:95%;
+		height:100%;
+		text-align:center;
+		justify-content:center;
+		margin:auto;
+	}
+
+	/*classes for div's used for top recs*/
+	.rec {
+		background-color:lightgreen;
+		width:100%;
+		display:flex;
+		justify-content:center;
+		margin:auto;
+		border: 2px solid #ddd;
+	}
+	.un-rec {
+		background-color:#fed9d1;
+		width:80%;
+		display:flex;
+		justify-content:center;
+		margin:auto;
+		border: 2px solid #ddd;
+	}
+	.smallbox {
+		background-color:inherit;
+		justify-content:center;
+		float: center;
+		font-size:3em;
+		text-align:center;
+		flex-basis: 25%;
+	}
+	.bigbox {
+		background-color:inherit;
+		font-size:1em;
+		padding:5px;
+		float: center;
+		text-align:left;
+		flex-basis: 75%;
+	}
+	.bigbox-r {
+		background-color:inherit;
+		font-size:1em;
+		padding:5px;
+		float: left;
+		text-align:right;
+		flex-basis: 75%;
+	}
+
+</style>
+
+<div>
+<div class="section">
+{%block material%}
+{%endblock%}
+
+
+</div>
+<div class="section">
+<h3>Top Reccomendations</h3>
+	<div class="rec">
+		<div class="smallbox">
+			<h3> PLA </h3>
+		</div>
+		<div class="bigbox">
+			<p> Some text about PLA being a good idea </p>
+		</div>
+	</div>	
+	&nbsp
+	<div class="rec">
+		<div class="bigbox-r">
+			<p> Some text about PETG being a good idea </p>
+		</div>
+		<div class="smallbox">
+			<h3> PETG </h3>
+		</div>
+	</div>	
+	&nbsp
+	<div class="rec">
+		<div class="smallbox">
+			<h3> ABS </h3>
+		</div>
+		<div class="bigbox">
+			<p> Some text about ABS being a good idea </p>
+		</div>
+	</div>	
+</div>
+
+
+<div class="section">
+<h3>Stray Away From:</h3>
+	<div class="un-rec">
+		<div class="smallbox" style="font-size:2em">
+			<h5> TPU </h5>
+		</div>
+		<div class="bigbox">
+			<p> Some text about TPU being terrible </p>
+		</div>
+	</div>
+	<p></p>
+	<div class="un-rec">
+		<div class="bigbox-r">
+			<p> Some text about PVA being terrible </p>
+		</div>
+		<div class="smallbox" style="font-size:2em">
+			<h5> PVA </h5>
+		</div>
+
+</div>
+
+
+<div class="section">
+<h3>Our Process</h3>
+<p> This is a first paragraph about the settings we used to print the molds </p>
+
+<p> This is a second paragraph about how we post processed the molds </p>
+
+<p> This is a third paragraph detailing everything else we worked on </p>
+
+</div>
+</div>
+{%endblock%}
