@@ -8,7 +8,6 @@
 		font-family: Arial, sans-serif;
 		display: flex;
 		flex-direction: column;
-		height: 100vh;
 	}
 
 
@@ -20,18 +19,19 @@
 
 	/* Left column */
 	.left-column {
-		width: 30%;
-		height:100%;
+		flex-basis: 30%;
 		background-color: #fee9e1;
 		padding: 20px;
 		box-sizing: border-box;
 		border-right: 2px solid #ddd;
+		min-height: 91vh;
 	}
 
 	/* Right column */
 	.right-column {
-		flex: 1;
+		flex-basis: 70%;
 		padding: 20px;
+		justify-content: center;
 		box-sizing: border-box;
 	}
 
@@ -54,15 +54,17 @@
 {% block body %}
 
 <main>
+<div style="display:flex">
 	<!-- Left Column -->
 	<div class="left-column">
 		<h1>Casting with 3D Prints</h1>
 
 		<p>
-			3D Printing is an immensely useful technology that can produce complex objects with ease.
-			However, there are limitations to materials and their properties.
-			This page acts as a guide to our project which focuses on finding the optimal solution for
-			creating casting molds with 3D printing.
+		3D Printing is an immensely useful technology that can produce 
+		complex objects with ease. However, there are limitations to 
+		materials and their properties. This page acts as a guide to our
+		project which focuses on finding the optimal solution for 
+		creating casting molds with 3D printing.
 		</p>
 
 		<label for="material">Choose the casting material you would like to work with:</label>
@@ -76,10 +78,11 @@
 
 	<!-- Right Column -->
 	<div class="right-column">
-	  {% block info %}
+	  {% block guide %}
 	  {% endblock %}
 		<!--<p id="dynamicBox" class="dynamic-textbox"></p>-->
 	</div>
+</div>
 </main>
 
 
