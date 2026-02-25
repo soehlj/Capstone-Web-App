@@ -19,7 +19,8 @@ db = SQLAlchemy(app)
 def home():
     #determine the query of url/user material state
     state = request.args.get('material')
-    
+    if(state == "test"):
+        return render_template("home-guide.html")
     if(state == "silicone"):
         return render_template("silicone.html")
     elif(state == "rubber"):

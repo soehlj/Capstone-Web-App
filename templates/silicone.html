@@ -1,4 +1,19 @@
-{% extends 'home.html' %}
-{% block info %}
-<p> This is the guide page for silicone </p>
+{% extends 'home-guide.html' %}
+{% from './macros.html' import rec, recb, unrec, unrecb%}
+
+{% block material %}
+<p> Silicone comes out of molds quite easily, so when you want to use it your main focus should be on using a material that prints easily. </p>
 {% endblock %}
+
+{%block recs%}
+{{rec('PLA', 'PLA prints easy and removes easier!')}}
+{{recb('PETG', 'PETG is a close second place!')}}
+{%endblock%}
+
+{%block unrecs%}
+{{unrecb('TPU', 'TPU is hard to print and doesn\'t remove easy!')}}
+{{unrec('ASA', 'ASA is just more effort than it\'s usually worth!')}}
+{%endblock%}
+
+{%block process%}
+{%endblock%}
